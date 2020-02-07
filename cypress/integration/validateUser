@@ -1,0 +1,23 @@
+it("Valdiating User", () => {
+  cy.visit("https://soumya.madrid.quintype.io/");
+  cy.get(
+    ".header-two-m__layer-2__3pkbW > .header-two-m__search__1nzzQ"
+  ).click();
+  cy.get(
+    ".header-two-m__layer-2__3pkbW > .header-two-m__search__1nzzQ > .header-search-m__search-wrapper__2eSgf > :nth-child(2) > .header-search-m__search-form__di2MW > :nth-child(1) > .header-search-m__internal-search-wrapper__3NIUp > label > #searchForm"
+  ).type("india");
+  cy.get(
+    ".header-two-m__layer-2__3pkbW > .header-two-m__search__1nzzQ > .header-search-m__search-wrapper__2eSgf > :nth-child(2) > .header-search-m__search-form__di2MW > :nth-child(1) > .header-search-m__internal-search-wrapper__3NIUp > .header-search-m__search-for-open-form__3HBJN"
+  ).click();
+  cy.get(".search-page-m__placeholder__1YuuK")
+    .click()
+    .get(".search-page-m__list__1f99P")
+    .contains("Newest")
+    .click();
+  cy.get(
+    "[data-testid=list-object-0] > .media > .media__content > .author > .author__content > .author__name"
+  ).contains("Ekta Patnaik");
+  cy.get(
+    "[data-testid=list-object-0] > .media > .media__content > .author > .author__content > .author__date-read-time-wrapper > .author__published-date > .author__time-stamp-wrapper > time"
+  ).contains("Dec 30, 2019, 4:57 PM");
+});
